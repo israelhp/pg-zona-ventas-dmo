@@ -17,8 +17,22 @@ import { Star, ShoppingCart } from "lucide-react"
 
 const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE
 
-const productos = [
-    {
+interface Producto {
+  id: number
+  nombre: string
+  descripcion: string
+  precio: number
+  imagen: string
+  categoria: string
+  rating: number
+  reviews: number
+  badge?: string
+  badgeType?: "descuento" | "nuevo"
+  precioAnterior?: number
+}
+
+const productos: Producto[] = [
+  {
     id: 1,
     nombre: "Sony XMS400D",
     descripcion: "Amplificador Mini de 4 Canales",

@@ -13,7 +13,18 @@ import { ShoppingCart } from "lucide-react"
 
 const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE
 
-const handleWhatsappCombo = (combo: typeof combos[0]) => {
+type ComboType = {
+  id: number
+  nombre: string
+  descripcion: string
+  precioNormal: number
+  precioCombo: number
+  ahorro: number
+  imagen: string
+  productos: string[]
+}
+
+const handleWhatsappCombo = (combo: ComboType) => {
   const mensaje = `Hola, me interesa el combo: ${combo.nombre}\n\nDescripción: ${combo.descripcion}\nPrecio: Q${combo.precioCombo.toFixed(2)}\nAhorro: Q${combo.ahorro.toFixed(2)}\n\nProductos incluidos:\n${combo.productos.map(p => `• ${p}`).join("\n")}\n\n¿Puedes brindarme más información?`
   const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensaje)}`
   window.open(url, "_blank")
